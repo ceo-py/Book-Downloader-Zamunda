@@ -6,15 +6,21 @@ from selenium.webdriver.common.by import By
 
 options = Options()
 options.add_argument('--headless')
-PATH = r"D:\PyCharm\Scraper-One-on-One\chromedriver.exe"
+
+# Set the path to browser driver
+PATH = r"YOUR PATH TO CHROME DRIVER"
+# Set the starting page
 page = 34
+# Set your Zamunda username and password
+password = 'YOUR PASSWORD'
+username = 'YOUT USERNAME'
+
 url = 'https://zamunda.net/catalogs/books?comb=yes&t=books&page='
 driver = webdriver.Chrome()
 
 driver.get(f'{url}{page}')
-password = 'YOUR PASSWORD'
-username = 'YOUT USERNAME'
 
+# Log In
 username_find = driver.find_element(By.XPATH,
                                     '/html/body/div[4]/div/table/tbody/tr[1]/td/table/tbody/tr/td/form/table/tbody/tr[1]/td[2]/input')
 username_find.send_keys(username)
